@@ -1,6 +1,8 @@
 class PublicController < ApplicationController
-    def homepage
-        
-                
+    def homepage          
+    end
+
+
+    def signup          
     end
 end

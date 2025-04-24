@@ -1,0 +1,51 @@
+<style>
+        body {
+            background-color: #121212;  /* Dark background */
+            color: #E0E0E0;             /* Light gray text */
+            font-family: Arial, sans-serif;
+        }
+
+        h1, p {
+            color: #E0E0E0;  /* Light text for headings and paragraphs */
+        }
+        a {
+            color: #BB86FC;  /* Light purple color for links */
+        }
+
+        a:hover {
+            color: #03DAC6;  /* Light teal color on hover */
+        }
+        button {
+            background-color: #6200EE;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #3700B3;
+        }
+    </style>
+
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram Logo" width="30" height="30" class="me-2 ms-2">
+    <div class="container-fluid">
+    <%= link_to 'Instagram Clone', root_path, class:"navbar-brand" %>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Sign Up</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Sign In</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
