@@ -1,60 +1,108 @@
 <style>
-        body {
-            background-color: #121212;  /* Dark background */
-            color: #E0E0E0;             /* Light gray text */
-            font-family: Arial, sans-serif;
-        }
+    body {
+        background-color: #121212;  /* Dark background */
+        color: #E0E0E0;             /* Light gray text */
+        font-family: Arial, sans-serif;
+    }
 
-        h1, p {
-            color: #E0E0E0;  /* Light text for headings and paragraphs */
-        }
-        a {
-            color: #BB86FC;  /* Light purple color for links */
-        }
+    h1, p {
+        color: #E0E0E0;  /* Light text for headings and paragraphs */
+    }
 
-        a:hover {
-            color: #03DAC6;  /* Light teal color on hover */
-        }
-        button {
-            background-color: #6200EE;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
+    a {
+        color: #BB86FC;  /* Light purple color for links */
+    }
 
-        button:hover {
-            background-color: #3700B3;
-        }
-    </style>
+    a:hover {
+        color: #03DAC6;  /* Light teal color on hover */
+    }
 
+    /* Navbar styling */
+    .navbar {
+        background-color: #121212;  /* Dark background for navbar */
+    }
+
+    .navbar-brand {
+        color: #BB86FC; /* Purple color for the brand */
+    }
+
+    .navbar-brand:hover {
+        color: #03DAC6;  /* Teal color when hovering */
+    }
+
+    .navbar-toggler {
+        background-color: #6200EE; /* Purple button for toggler */
+    }
+
+    .navbar-toggler:hover {
+        background-color: #3700B3; /* Darker purple when hovering */
+    }
+
+    /* Navbar links */
+    .nav-link {
+        color: #E0E0E0; /* Light gray color for links */
+        padding: 12px 20px; /* Consistent padding for the links */
+        border-radius: 20px; /* More rounded edges */
+        margin: 0 10px; /* Increase space between buttons */
+        transition: background-color 0.3s ease; /* Smooth transition on hover */
+    }
+
+    .nav-link:hover {
+        background-color: #6200EE; /* Purple color when hovering */
+        color: white; /* White text when hovering */
+    }
+
+    /* Button styles (make square-shaped but with rounded corners) */
+    .nav-item button {
+        background-color: transparent; /* No background color */
+        color: #E0E0E0; /* Light gray text color */
+        padding: 12px 20px; /* Slightly reduced padding for more rounded buttons */
+        border-radius: 20px; /* More rounded edges */
+        border: 2px solid #6200EE; /* Add a border to match the design */
+        transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition on hover */
+        margin: 0 10px; /* Increase space between buttons */
+    }
+
+    .nav-item button:hover {
+        background-color: #6200EE; /* Purple background on hover */
+        color: white; /* White text on hover */
+    }
+
+    /* Active state for buttons */
+    .nav-item button:focus {
+        outline: none; /* Remove the focus outline */
+    }
+
+    .nav-item button:active {
+        background-color: #3700B3; /* Darker purple when clicked */
+    }
+</style>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram Logo" width="30" height="30" class="me-2 ms-2">
     <div class="container-fluid">
-    <%= link_to 'Instagram Clone', root_path, class:"navbar-brand" %>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <%= link_to "Sign Up", new_account_registration_path, class: "nav-link" %>
-          </li>
-
-          <li class="nav-item">
-            <%= link_to "Sign In", new_account_session_path, class: "nav-link" %>
-          </li>
-          
-          <li class="nav-item">
-          <%= button_to "Sign Out", destroy_account_session_path, method: :delete, class: "nav-link", form: { "data-turbo" => "false" } %>
-          </li>
-
-          <li class="nav-item">
-          <%= link_to "Edit Profile", edit_account_registration_path, class: "nav-link" %>
-          </li>
-        </ul>
-      </div>
+        <%= link_to 'Instagram Clone', root_path, class:"navbar-brand" %>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <% if account_signed_in? %>
+                    <li class="nav-item">
+                        <%= button_to "Sign Out", destroy_account_session_path, method: :delete, class: "nav-link btn-custom", form: { "data-turbo" => "false" } %>
+                    </li>
+                    <li class="nav-item">
+                        <%= link_to "Edit Profile", edit_account_registration_path, class: "nav-link" %>
+                    </li>
+                <% else %>
+                    <li class="nav-item">
+                        <%= link_to "Sign Up", new_account_registration_path, class: "nav-link" %>
+                    </li>
+                    <li class="nav-item">
+                        <%= link_to "Sign In", new_account_session_path, class: "nav-link" %>
+                    </li>
+                <% end %>
+            </ul>
+        </div>
     </div>
-  </nav>
+</nav>

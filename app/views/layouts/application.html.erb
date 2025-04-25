@@ -10,7 +10,6 @@
 </head>
 
 
-    <%= yield :head %>
 
     <%# Enable PWA manifest for installable apps (make sure to enable in config/routes.rb too!) %>
     <%#= tag.link rel: "manifest", href: pwa_manifest_path(format: :json) %>
@@ -24,8 +23,7 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
-    
+<body style="padding-top: 70px;">    
   <%= render "public/header" %>
 
     <div class="container">
