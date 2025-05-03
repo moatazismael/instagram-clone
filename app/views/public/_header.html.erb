@@ -94,6 +94,10 @@
                     <li class="nav-item">
                         <%= link_to "Edit Profile", edit_account_registration_path, class: "nav-link" %>
                     </li>
+                    <li class="nav-item">
+                        <%= link_to "My Profile", account_profile_path(current_account), class: "nav-link" %>
+                    </li>
+
                 <% else %>
                     <li class="nav-item">
                         <%= link_to "Sign Up", new_account_registration_path, class: "nav-link" %>
